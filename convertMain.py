@@ -1,0 +1,57 @@
+file_object = open("calendarTest.ics", "w")#change calendar test to SchoolScheduleSemesterYear
+file_object.write("BEGIN:VCALENDAR\n"
+                  "PRODID:-//Google Inc//Google Calendar 70.9054//EN\n"
+                  "VERSION:2.0 CALSCALE:GREGORIAN METHOD:PUBLISH X-WR-CALNAME:RANDOMIZE\n"
+                  "X-WR-TIMEZONE:America/Chicago\n"
+                  "BEGIN:VTIMEZONE\n"
+                  "TZID:Etc/UTC\n"
+                  "X-LIC-LOCATION:Etc/UTC\n"
+                  "BEGIN:STANDARD\n"
+                  "TZOFFSETFROM:+0000\n"
+                  "TZOFFSETTO:+0000\n"
+                  "TZNAME:GMT\n"
+                  "DTSTART:19700101T000000\n"
+                  "END:STANDARD\n"
+                  "END:VTIMEZONE\n"
+                  "BEGIN:VTIMEZONE\n"
+                  "TZID:America/Chicago\n"
+                  "X-LIC-LOCATION:America/Chicago\n"
+                  "BEGIN:DAYLIGHT\n"
+                  "TZOFFSETFROM:-0600\n"
+                  "TZOFFSETTO:-0500\n"
+                  "TZNAME:CDT\n"
+                  "DTSTART:19700308T020000\n"
+                  "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU\n"
+                  "END:DAYLIGHT\n"
+                  "BEGIN:STANDARD\n"
+                  "TZOFFSETFROM:-0500\n"
+                  "TZOFFSETTO:-0600\n"
+                  "TZNAME:CST\n"
+                  "DTSTART:19701101T020000\n"
+                  "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU\n"
+                  "END:STANDARD\n"
+                  "END:VTIMEZONE\n"
+                  "BEGIN:VEVENT\n"
+                  "DTSTART:20170822T190000Z\n"#when the event starts
+                  "DTEND:20170822T200000Z\n"#when the event ends
+                  "RRULE:FREQ=WEEKLY;UNTIL=20181207T055959Z;BYDAY=TU,TH\n"#here you insert the end time and days the classes go
+                  "DESCRIPTION:<insert professor name here>\n"
+                  "LOCATION: <insert location here>\n"
+                  "SEQUENCE:1\n"#this probably means repetition, so use this one
+                  "STATUS:TENTATIVE\n"
+                  "SUMMARY:<class name>\n"
+                  "TRANSP:OPAQUE\n"
+                  "END:VEVENT\n"
+                  "BEGIN:VEVENT\n"
+                  "DTSTART:20170825T000000Z\n"#time when the class starts
+                  "DTEND:20170825T010000Z\n"#time when the class ends
+                  "DESCRIPTION:<insert description here>\n"
+                  "LOCATION:<location1>\n"
+                  "SEQUENCE:0\n"
+                  "STATUS:CONFIRMED\n"
+                  "SUMMARY:<class name>\n"
+                  "TRANSP:OPAQUE\n"
+                  "END:VEVENT\n"
+                  "END:VCALENDAR\n")
+
+file_object.close()

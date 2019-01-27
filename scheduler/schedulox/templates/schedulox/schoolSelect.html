@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Schedulox</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'schedulox/css/style.css' %}">
+</head>
+<body>
+
+<h1> Select School </h1>
+<select id ='schoolSelector'>
+	<option value="UTD">UT Dallas</option>
+	<option value="TAMU">Texas A&M</option>
+	<option value="RICE">Rice</option>
+	<option value="UT">UT Austin</option>
+</select>
+<button><a href="{% url 'schedulox:courseSelect'%}">go</button></p>
+</body>
+</html>

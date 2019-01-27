@@ -15,7 +15,7 @@ h1
 {
   color: white;
   margin-left: 200px;
-  margin-top: 25px;
+  margin-top: 50px;
   font-family: arial;
   font-size: 300%;
 }
@@ -28,6 +28,7 @@ select
 }
 button
 {
+	margin-top: 50px;
 	margin-left: 300px;
 	font-family: verdana;
   	font-size: 150%;

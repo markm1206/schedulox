@@ -19,6 +19,14 @@ h1
   font-family: arial;
   font-size: 300%;
 }
+h2
+{
+	color: Navy;
+	margin-left: 200px;
+    margin-top: 100px;
+	font-family: arial;
+    font-size: 150%;
+}
 select
 {
 	margin-left: 300px;

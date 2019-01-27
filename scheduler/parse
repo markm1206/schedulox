@@ -1,0 +1,87 @@
+
+# json_data = '{"a": 1, "b"": 2, "c": 3, "d": 4, "e": 5}'
+# json_data=open(C:\Users\ian\PycharmProjects\scheduler).read()
+#
+# data = json.loads(json_data)
+# pprint(data)aded_json[x]))/#
+# #
+# #
+import random
+import sys
+import os
+import json
+from pprint import pprint
+
+with open('spring2018.json') as f:#this one becomes a list
+    data = json.load(f)
+
+with open('utdCSS18.json') as f:#this one becomes a dict
+    cs = json.load(f)
+
+
+# for count in range (0,2706):
+#     try:
+#
+#         check = (data[count]['prof'])
+#         if check==name :
+#             found = count
+#         else:
+#             print("failed to find profesor")
+#             break
+        # print(type(check))
+        # print(check)
+        #
+total = 0
+try:
+    total+=   int(data[0]['grades']['A+'])
+except(KeyError, IndexError):
+     pass
+try:
+    total+=   int(data[0]['grades']['Z'])
+except(KeyError, IndexError):
+    pass
+
+
+
+print(total)
+
+# print(type(data[0]))
+# print(data[0].get('grades').values())
+
+
+
+#num_A = (data[0]['grades']['A'])
+#pprint(data[0]['grades']['A'])
+
+# for count in range (0,2706):          2706 sections  gets the As
+#     try:
+#         pprint(data[count]['grades']['A'])
+#     except(KeyError):
+#             pass
+#
+#
+#
+#
+# range for all courses
+# for count in range (0,2706):
+#     try:
+#         print(data[count]['subj'])
+#         print(data[count]['num'])
+#         print(data[count])
+#     except(KeyError, IndexError):
+#             pass
+#
+
+
+#range for cs dept is 240
+#for count2 in range (0,4):
+# for count in range (0,240):
+#     try:
+#         pprint(cs['report_data'][count][ 'instructor_netid'])
+#         # pprint(cs['report_data'][count]['course_number'])
+#     except(KeyError, IndexError):
+#             pass
+#
+
+
+

@@ -1,4 +1,7 @@
 file_object = open("calendarTest.ics", "w")#change calendar test to SchoolScheduleSemesterYear
+
+
+
 file_object.write("BEGIN:VCALENDAR\n"
                   "PRODID:-//Google Inc//Google Calendar 70.9054//EN\n"
                   "VERSION:2.0 CALSCALE:GREGORIAN METHOD:PUBLISH X-WR-CALNAME:RANDOMIZE\n"
@@ -30,28 +33,48 @@ file_object.write("BEGIN:VCALENDAR\n"
                   "DTSTART:19701101T020000\n"
                   "RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU\n"
                   "END:STANDARD\n"
-                  "END:VTIMEZONE\n"
-                  "BEGIN:VEVENT\n"
-                  "DTSTART:20170822T190000Z\n"#when the event starts
-                  "DTEND:20170822T200000Z\n"#when the event ends
-                  "RRULE:FREQ=WEEKLY;UNTIL=20181207T055959Z;BYDAY=TU,TH\n"#here you insert the end time and days the classes go
-                  "DESCRIPTION:<insert professor name here>\n"
-                  "LOCATION: <insert location here>\n"
+                  "END:VTIMEZONE\n")
+
+#here we have the for loop
+name = "Don Vogel"
+time = "8:30 - 9:45"
+time2 = "0"
+if time[1] == ':':
+    time2+=time
+
+if len(time2) == 12:
+    time2 = time2.replace(' - ', '0')
+
+time2 = time2.replace(' - ', '')
+time2 = time2.replace(':', '')
+startTime = time2[0:4]
+endTime = time2[4:8]
+location = "location"
+classDays = "Tuesday & Thursday"
+
+classDays = classDays.replace(' & ', ',')
+classDays = classDays.replace('Sunday', 'SU')
+classDays = classDays.replace('Monday', 'MO')
+classDays = classDays.replace('Tuesday', 'TU')
+classDays = classDays.replace('Wednesday', 'WE')
+classDays = classDays.replace('Thursday', 'TH')
+classDays = classDays.replace('Friday', 'FR')
+classDays = classDays.replace('Saturday', 'SA')
+
+print(classDays)
+file_object.write("BEGIN:VEVENT\n"
+                  "DTSTART:20180822T"+startTime+"00\n"#when the event starts
+                  "DTEND:20180822T"+endTime+"00\n"#when the event ends
+                  "RRULE:FREQ=WEEKLY;UNTIL=20181207T055959Z;BYDAY="+classDays+"\n"#here you insert the end time and days the classes go
+                  "DESCRIPTION:"+name+"\n"#here is the professor
+                  "LOCATION:"+location+"\n"
                   "SEQUENCE:1\n"#this probably means repetition, so use this one
                   "STATUS:TENTATIVE\n"
                   "SUMMARY:<class name>\n"
                   "TRANSP:OPAQUE\n"
-                  "END:VEVENT\n"
-                  "BEGIN:VEVENT\n"
-                  "DTSTART:20170825T000000Z\n"#time when the class starts
-                  "DTEND:20170825T010000Z\n"#time when the class ends
-                  "DESCRIPTION:<insert description here>\n"
-                  "LOCATION:<location1>\n"
-                  "SEQUENCE:0\n"
-                  "STATUS:CONFIRMED\n"
-                  "SUMMARY:<class name>\n"
-                  "TRANSP:OPAQUE\n"
-                  "END:VEVENT\n"
-                  "END:VCALENDAR\n")
+                  "END:VEVENT\n")
+#loop ends here
+
+file_object.write("END:VCALENDAR\n")
 
 file_object.close()
